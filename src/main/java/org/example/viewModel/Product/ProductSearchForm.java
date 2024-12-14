@@ -76,4 +76,6 @@ public class ProductSearchForm{
         public void setToPrice( Double toPrice) {
                 this.toPrice = toPrice;
         }
+
+
 }

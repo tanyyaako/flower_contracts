@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record CategoryCreateForm (
         @NotBlank(message = "Name cannot be null")
-        String name
+        String name,
+        String type
 ){
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ProductView{
         Long id;
-        String nameOfProduct;
+        String name;
         Double price;
         String url;
         Long categoryID;
@@ -13,9 +13,9 @@ public class ProductView{
     public ProductView() {
     }
 
-    public ProductView( Long id, String nameOfProduct, Double price, String url,Long categoryID,Double salePrice) {
+    public ProductView( Long id, String name, Double price, String url,Long categoryID,Double salePrice) {
         this.id = id;
-        this.nameOfProduct = nameOfProduct;
+        this.name = name;
         this.price = price;
         this.url = url;
         this.categoryID = categoryID;
@@ -38,12 +38,12 @@ public class ProductView{
         this.id = id;
     }
 
-    public String getNameOfProduct() {
-        return nameOfProduct;
+    public String getName() {
+        return name;
     }
 
-    public void setNameOfProduct(String nameOfProduct) {
-        this.nameOfProduct = nameOfProduct;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getPrice() {

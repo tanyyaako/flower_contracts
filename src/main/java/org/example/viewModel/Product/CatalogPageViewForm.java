@@ -7,8 +7,9 @@ import java.util.List;
 
 public record CatalogPageViewForm(
         BaseView baseView,
-        List<CategoryView> categoryView,
-        List<ProductView> productViews,
-        ProductSearchForm productSearchForm
+        List<Long> categoryViewIds,
+        List<Long> productViewsIds,
+        ProductSearchForm productSearchForm,
+        String categoryType
 ) {
 }

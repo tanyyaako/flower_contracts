@@ -8,6 +8,7 @@ public record CategoryEditForm(
         Long id,
         @NotBlank(message = "Name cannot be null")
         String name,
-        String description
+        String description,
+        String type
 ) {
 }

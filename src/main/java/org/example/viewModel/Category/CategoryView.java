@@ -8,16 +8,18 @@ public class CategoryView{
         Long id;
         String name;
         String description;
-        List<ProductView> products;
+        List<Long> productsIds;
+        String type;
 
     public CategoryView() {
     }
 
-    public CategoryView( Long id, String name,String description, List<ProductView> products) {
+    public CategoryView( Long id, String name,String description, List<Long> products,String type) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.products = products;
+        this.productsIds = productsIds;
+        this.type = type;
     }
 
     public String getDescription() {
@@ -44,11 +46,19 @@ public class CategoryView{
         this.name = name;
     }
 
-    public List<ProductView> getProducts() {
-        return products;
+    public List<Long> getProducts() {
+        return productsIds;
     }
 
-    public void setProducts(List<ProductView> products) {
-        this.products = products;
+    public void setProducts(List<Long> products) {
+        this.productsIds = productsIds;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

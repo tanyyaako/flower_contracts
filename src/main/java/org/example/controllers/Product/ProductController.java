@@ -15,13 +15,19 @@ public interface ProductController extends BaseController {
 
     @GetMapping("/catalog")
     String catalog(
-            @ModelAttribute("form") CatalogPageViewForm form,
+            @RequestParam(required = false) String categoryType,
             Model model
     );
+    @PostMapping("/catalog")
+    String catalog(
+            @ModelAttribute("form") CatalogPageViewForm form,
+                          Model model
+    );
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/details")
     String detailsProduct(
             @PathVariable("id") Long id,
+            @ModelAttribute("form") CatalogPageViewForm form,
             Model model
     );
     @GetMapping("/list")
