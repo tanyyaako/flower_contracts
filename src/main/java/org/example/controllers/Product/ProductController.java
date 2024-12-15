@@ -16,11 +16,15 @@ public interface ProductController extends BaseController {
     @GetMapping("/catalog")
     String catalog(
             @RequestParam(required = false) String categoryType,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
             Model model
     );
     @PostMapping("/catalog")
     String catalog(
             @ModelAttribute("form") CatalogPageViewForm form,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
                           Model model
     );
 
@@ -32,6 +36,9 @@ public interface ProductController extends BaseController {
     );
     @GetMapping("/list")
     String listProducts(Model model);
+    @PostMapping("/list")
+    String listProducts(Model model,
+                        @ModelAttribute("form") AdminSearchForm form);
 
     @GetMapping("/create")
     String createForm(Model model);

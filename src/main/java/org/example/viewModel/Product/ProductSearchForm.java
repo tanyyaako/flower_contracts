@@ -11,10 +11,10 @@ public class ProductSearchForm{
         Integer size;
         Double fromPrice;
         Double toPrice;
-        List<CategoryView> categoryViews;
+        List<Long> categoryIds;
 
-        public ProductSearchForm(List<CategoryView> categoryViews, Double fromPrice, Integer page, String searchProduct, Integer size, Double toPrice) {
-                this.categoryViews = categoryViews;
+        public ProductSearchForm(List<Long> categoryIds, Double fromPrice, Integer page, String searchProduct, Integer size, Double toPrice) {
+                this.categoryIds = categoryIds;
                 this.fromPrice = fromPrice;
                 this.page = page;
                 this.searchProduct = searchProduct;
@@ -25,12 +25,12 @@ public class ProductSearchForm{
         public ProductSearchForm() {
         }
 
-        public List<CategoryView> getCategoryViews() {
-                return categoryViews;
+        public List<Long> getCategoryIds() {
+                return categoryIds;
         }
 
-        public void setCategoryViews(List<CategoryView> categoryViews) {
-                this.categoryViews = categoryViews;
+        public void setCategoryIds(List<Long> categoryIds) {
+                this.categoryIds = categoryIds;
         }
 
         @Min(value = 1, message = "Цена должна быть больше 0")

@@ -19,10 +19,14 @@ public interface OrderController  extends BaseController {
     String showCart(@AuthenticationPrincipal User user, Model model);
 
     @PostMapping("/cart/add")
-    String addCart(@AuthenticationPrincipal User user, @RequestParam  Long productId,@RequestParam int quantity,Model model,@RequestParam String categoryType);
+    String addCart(@AuthenticationPrincipal User user, @RequestParam  Long productId,@RequestParam Integer quantity,Model model,
+                   @RequestParam String categoryType,@RequestParam(required = false) String returnUrl);
 
     @PostMapping("/clear")
     String clearCart(@AuthenticationPrincipal User user);
     @PostMapping("/checkout")
     String checkout(@AuthenticationPrincipal User user);
+
+    @PostMapping("/cart/decrease")
+    String decreaseQuantity(@AuthenticationPrincipal User user, @RequestParam Long productId,Model model);
 }
