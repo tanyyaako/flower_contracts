@@ -1,5 +1,6 @@
 package org.example.viewModel.Product;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.example.controllers.LikeIt.LikeItController;
@@ -42,6 +43,7 @@ public class ProductCreateForm {
         }
 
         @NotNull(message = "Price cannot be null")
+        @Min(value = 1, message = "Цена должна быть больше 0")
         public  Double getPrice() {
                 return price;
         }
@@ -50,6 +52,8 @@ public class ProductCreateForm {
                 this.price = price;
         }
 
+        @NotNull(message = "Quantity cannot be null")
+        @Min(value = 0, message = "Количество должна быть больше 0")
         public Double getQuantityProduct() {
                 return quantityProduct;
         }

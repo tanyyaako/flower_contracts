@@ -9,17 +9,19 @@ public class ProductView{
         String url;
         Long categoryID;
         Double salePrice;
+        Double quantityProduct;
 
     public ProductView() {
     }
 
-    public ProductView( Long id, String name, Double price, String url,Long categoryID,Double salePrice) {
+    public ProductView( Long id, String name, Double price, String url,Long categoryID,Double salePrice,Double quantityProduct) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.url = url;
         this.categoryID = categoryID;
         this.salePrice = salePrice;
+        this.quantityProduct = quantityProduct;
     }
 
     public Long getCategoryID() {
@@ -68,5 +70,13 @@ public class ProductView{
 
     public void setSalePrice(Double salePrice) {
         this.salePrice = salePrice;
+    }
+
+    public Double getQuantityProduct() {
+        return quantityProduct;
+    }
+
+    public void setQuantityProduct(Double quantityProduct) {
+        this.quantityProduct = quantityProduct;
     }
 }

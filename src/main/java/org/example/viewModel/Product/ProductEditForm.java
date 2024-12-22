@@ -13,17 +13,19 @@ public class ProductEditForm{
         String url;
         Long categoryID;
         Double sale;
+        Double quantityProduct;
 
         public ProductEditForm() {
         }
 
-        public ProductEditForm( Long id, String name, Double price, String url,Long categoryID,Double sale) {
+        public ProductEditForm( Long id, String name, Double price, String url,Long categoryID,Double sale,Double quantityProduct) {
                 this.id = id;
                 this.name = name;
                 this.price = price;
                 this.url = url;
                 this.categoryID = categoryID;
                 this. sale=sale;
+                this.quantityProduct=quantityProduct;
         }
 
         public Long getCategoryID() {
@@ -53,6 +55,7 @@ public class ProductEditForm{
         }
 
         @Min(value = 1, message = "Price cannot be null")
+        @NotNull
         public Double getPrice() {
                 return price;
         }
@@ -69,11 +72,22 @@ public class ProductEditForm{
                 this.url = url;
         }
 
+        @Min(value = 0, message = "Sale cannot be null")
         public Double getSale() {
                 return sale;
         }
 
         public void setSale(Double sale) {
                 this.sale = sale;
+        }
+
+        @Min(value = 1, message = "Quantity cannot be null")
+        @NotNull
+        public Double getQuantityProduct() {
+                return quantityProduct;
+        }
+
+        public void setQuantityProduct(Double quantityProduct) {
+                this.quantityProduct = quantityProduct;
         }
 }

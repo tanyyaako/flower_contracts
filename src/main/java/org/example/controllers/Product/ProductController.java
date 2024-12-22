@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("/products")
@@ -18,6 +19,7 @@ public interface ProductController extends BaseController {
             @RequestParam(required = false) String categoryType,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
+            Principal principal,
             Model model
     );
     @PostMapping("/catalog")
@@ -25,6 +27,7 @@ public interface ProductController extends BaseController {
             @ModelAttribute("form") CatalogPageViewForm form,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
+            Principal principal,
                           Model model
     );
 
@@ -32,27 +35,32 @@ public interface ProductController extends BaseController {
     String detailsProduct(
             @PathVariable("id") Long id,
             @ModelAttribute("form") CatalogPageViewForm form,
+            Principal principal,
             Model model
     );
     @GetMapping("/list")
-    String listProducts(Model model);
+    String listProducts(Model model,Principal principal, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size);
     @PostMapping("/list")
-    String listProducts(Model model,
-                        @ModelAttribute("form") AdminSearchForm form);
+    String listProducts(Model model,Principal principal,
+                        @ModelAttribute("form") AdminSearchForm form,
+                        @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size,
+                        @RequestParam(value = "clearForm", required = false) String clearForm);
 
     @GetMapping("/create")
-    String createForm(Model model);
+    String createForm(Principal principal,Model model);
 
     @PostMapping("/create")
     String create(
             @Valid @ModelAttribute("form") ProductCreateForm form,
             BindingResult bindingResult,
+            Principal principal,
             Model model
     );
 
     @GetMapping("/{id}/edit")
     String editForm(
             @PathVariable Long id,
+            Principal principal,
             Model model
     );
 
@@ -61,9 +69,10 @@ public interface ProductController extends BaseController {
             @PathVariable Long id,
             @Valid @ModelAttribute("form") ProductEditForm form,
             BindingResult bindingResult,
+            Principal principal,
             Model model
     );
 
     @GetMapping("/{id}/delete")
-    String delete(@PathVariable Long id);
+    String delete(@PathVariable Long id,Principal principal);
 }

@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @RequestMapping("/")
 public interface HomeController extends BaseController {
 
     @GetMapping("/home")
-    String homePage(Model model);
+    String homePage(Principal principal, Model model);
 }

@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+
 @RequestMapping("/order")
 public interface OrderController  extends BaseController {
 
     @GetMapping("/list")
-    String showOrders(Model model);
+    String showOrders(Principal principal, Model model);
 
     @GetMapping("/cart")
     String showCart(@AuthenticationPrincipal User user, Model model);
